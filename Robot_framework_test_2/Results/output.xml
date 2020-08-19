@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200409 12:06:39.366" generator="Robot 3.1.2 (Python 2.7.16 on darwin)">
+<suite source="/Users/nickulrich/PycharmProjects/test2/Tests/test.robot" id="s1" name="Test">
+<test id="s1-t1" name="Create a User for Every Role">
+<kw type="setup" name="Begin Web Test" library="Common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200409 12:06:39.859" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20200409 12:06:43.333" starttime="20200409 12:06:39.858"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20200409 12:06:43.473" starttime="20200409 12:06:43.334"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:43.473" starttime="20200409 12:06:39.858"></status>
+</kw>
+<kw name="Load The Homepage" library="testApp">
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${START_URL}</arg>
+</arguments>
+<msg timestamp="20200409 12:06:43.477" level="INFO">Opening url 'https://rs2253.eu-central-1.dealsix-aws.pepper.com/'</msg>
+<status status="PASS" endtime="20200409 12:06:45.062" starttime="20200409 12:06:43.476"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:45.062" starttime="20200409 12:06:43.475"></status>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="tour-filter"]/div/ul/li[2]/a</arg>
+</arguments>
+<status status="PASS" endtime="20200409 12:06:45.087" starttime="20200409 12:06:45.063"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:45.087" starttime="20200409 12:06:45.062"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:45.088" starttime="20200409 12:06:43.474"></status>
+</kw>
+<kw name="Create New" library="testApp">
+<arguments>
+<arg>Odmin</arg>
+</arguments>
+<kw name="Load User Creation Page" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${START_URL}/register</arg>
+</arguments>
+<msg timestamp="20200409 12:06:45.090" level="INFO">Opening url 'https://rs2253.eu-central-1.dealsix-aws.pepper.com//register'</msg>
+<status status="PASS" endtime="20200409 12:06:45.801" starttime="20200409 12:06:45.089"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:45.801" starttime="20200409 12:06:45.089"></status>
+</kw>
+<kw name="Verify Page Loaded" library="CreateUserPage">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGIN_FIELD_CREATE}</arg>
+</arguments>
+<status status="PASS" endtime="20200409 12:06:45.861" starttime="20200409 12:06:45.801"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:45.861" starttime="20200409 12:06:45.801"></status>
+</kw>
+<kw name="Enter Credentials" library="CreateUserPage">
+<arguments>
+<arg>${Name}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${EMAIL_FIELD_CREATE}</arg>
+<arg>${name}@pepper.com</arg>
+</arguments>
+<msg timestamp="20200409 12:06:45.863" level="INFO">Typing text 'Odmin@pepper.com' into text field 'xpath=//*[@id="registerForm-email"]'.</msg>
+<status status="PASS" endtime="20200409 12:06:46.283" starttime="20200409 12:06:45.862"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_FIELD_CREATE}</arg>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200409 12:06:46.284" level="INFO">Typing text 'Odmin' into text field 'xpath=//*[@id="registerForm-username"]'.</msg>
+<status status="PASS" endtime="20200409 12:06:46.437" starttime="20200409 12:06:46.283"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_FIELD_CREATE}</arg>
+<arg>testpass</arg>
+</arguments>
+<msg timestamp="20200409 12:06:46.438" level="INFO">Typing text 'testpass' into text field 'xpath=//*[@id="registerForm-password"]'.</msg>
+<status status="PASS" endtime="20200409 12:06:46.591" starttime="20200409 12:06:46.437"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:46.591" starttime="20200409 12:06:45.861"></status>
+</kw>
+<kw name="Accept AGB" library="CreateUserPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="registerForm"]/ul/li[6]/div/label/span[1]</arg>
+</arguments>
+<msg timestamp="20200409 12:06:46.593" level="INFO">Clicking element 'xpath=//*[@id="registerForm"]/ul/li[6]/div/label/span[1]'.</msg>
+<status status="PASS" endtime="20200409 12:06:46.684" starttime="20200409 12:06:46.592"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>Agree</arg>
+</arguments>
+<msg timestamp="20200409 12:06:46.685" level="INFO">Clicking button 'Agree'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200409 12:06:47.138" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-197.png"&gt;&lt;img src="selenium-screenshot-197.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20200409 12:06:47.138" starttime="20200409 12:06:46.739"></status>
+</kw>
+<msg timestamp="20200409 12:06:47.149" level="FAIL">Button with locator 'Agree' not found.</msg>
+<status status="FAIL" endtime="20200409 12:06:47.149" starttime="20200409 12:06:46.684"></status>
+</kw>
+<status status="FAIL" endtime="20200409 12:06:47.149" starttime="20200409 12:06:46.591"></status>
+</kw>
+<status status="FAIL" endtime="20200409 12:06:47.150" starttime="20200409 12:06:45.088"></status>
+</kw>
+<kw type="teardown" name="End Web Test" library="Common">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200409 12:06:47.343" starttime="20200409 12:06:47.151"></status>
+</kw>
+<status status="PASS" endtime="20200409 12:06:47.343" starttime="20200409 12:06:47.150"></status>
+</kw>
+<tags>
+<tag>Roles</tag>
+</tags>
+<status status="FAIL" endtime="20200409 12:06:47.344" critical="yes" starttime="20200409 12:06:39.857">Button with locator 'Agree' not found.</status>
+</test>
+<doc>Testing robot framework test site</doc>
+<status status="FAIL" endtime="20200409 12:06:47.347" starttime="20200409 12:06:39.370"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Roles</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Test" pass="0">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
